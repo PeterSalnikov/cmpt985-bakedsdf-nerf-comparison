@@ -3,7 +3,7 @@ This code provides a runtime comparison of volume rendering methods traditionall
 
 Performance is measured in memory usage (KB)(size of model for 'NeRF' vs size of vertex array for BakedSDF) and ms (from model to mesh (NeRF) vs vertices to mesh (Baked))
 
-***There is NO NeRFing in this code as the BakedSDF paper focuses more on the baking process. Most NeRFing in Baked is a combination of preceding SOTA methods so it is not covered.
+***There is no NeRFing in this code as the BakedSDF paper focuses more on the baking process. Most NeRF in BakedSDF is a combination of preceding SOTA methods so it is not covered.
 
 There is an implicit representation of a sample 2D SDF, however, which serves as a base to both methods and simulates an SDF that could be extracted from a full BakedSDF.
 '''
@@ -157,7 +157,6 @@ def main():
     X,Y = torch.meshgrid(torch.linspace(0,1,res),
                         torch.linspace(0,1,res),
                         indexing="xy")
-    # grid_coords = torch.stack((X,Y),axis=-1)
     coords = torch.stack([X,Y],dim=-1)
 
     # querying MLP
